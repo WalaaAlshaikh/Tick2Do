@@ -27,7 +27,7 @@
             android:layout_marginBottom="15dp"
             android:text="Add your Task"
             android:textAlignment="center"
-            android:textSize="34sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/add_task_edittext"
@@ -79,10 +79,12 @@
 
         <Button
             android:id="@+id/add_item_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#FFB3B3"
             android:text="add"
             android:textColor="#1E1E1E" />

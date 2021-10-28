@@ -46,6 +46,9 @@
         android:label="fragment_real_main"
         tools:layout="@layout/fragment_real_main" >
         <action
+            android:id="@+id/action_realMainFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+        <action
             android:id="@+id/action_realMainFragment_to_detailItemFragment"
             app:destination="@id/detailItemFragment" />
     </fragment>

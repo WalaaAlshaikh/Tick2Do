@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tick2do.R
 import com.example.tick2do.database.model.TodoInfo
@@ -13,6 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class RealMainFragment : Fragment() {
     private val todoItemsList= mutableListOf<TodoInfo>()
+    private val toDoViewModel:ToDoViewModel by activityViewModels()
 
 
 
@@ -29,6 +33,23 @@ class RealMainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val todoRecyclerView:RecyclerView=view.findViewById(R.id.todo_recyclerView)
         val addFloatingButton:FloatingActionButton=view.findViewById(R.id.add_floating_button)
+        val toDoAdapter=ToDoAdapter(todoItemsList,toDoViewModel)
+
+        todoRecyclerView.adapter=toDoAdapter
+
+        toDoViewModel.doDoItems.observe(viewLifecycleOwner, Observer {
+            it?.let { items ->
+                todoItemsList.clear()
+                todoItemsList.addAll(items)
+                toDoAdapter.notifyDataSetChanged()
+
+            }
+        })
+
+        addFloatingButton.setOnClickListener {
+            findNavController().navigate(R.id.action_realMainFragment_to_addItemFragment)
+        }
+
     }
 
 

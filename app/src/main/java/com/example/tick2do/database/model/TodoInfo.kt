@@ -6,7 +6,7 @@ import java.util.*
 
 @Entity
 data class TodoInfo(val taskName:String,
-                    val isComplete:Boolean,
+                    var isComplete:Boolean,
                     val dueDate:String,
                     val description:String,
                     val creationDate: String,

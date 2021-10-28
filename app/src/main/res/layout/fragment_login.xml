@@ -48,8 +48,10 @@
         android:background="@drawable/custom_button"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
-        android:hint="  Username"
+        android:hint="Username"
         android:inputType="textPersonName"
+        android:textColor="#2C2C2C"
+        android:textColorHint="#C8C8C8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -66,6 +68,8 @@
         android:ems="10"
         android:hint="  Password"
         android:inputType="textPassword"
+        android:textColor="#1B1B1B"
+        android:textColorHint="#AFAFAF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_login_edittext" />
