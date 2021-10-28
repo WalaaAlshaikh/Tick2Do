@@ -9,4 +9,6 @@ Tick 2 Do
 </string>
     <string name="Login_button">Log in</string>
     <string name="signup_button">Sign Up</string>
+    <string name="edit_button">Edit</string>
+    <string name="delete_button">Delete</string>
 </resources>

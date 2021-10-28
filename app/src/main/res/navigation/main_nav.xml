@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/realMainFragment">
+
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="com.example.tick2do.todo.AddItemFragment"
+        android:label="fragment_add_item"
+        tools:layout="@layout/fragment_add_item" />
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.example.tick2do.user.MainPageFragment"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/action_mainPageFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailItemFragment"
+        android:name="com.example.tick2do.todo.DetailItemFragment"
+        android:label="fragment_detail_item"
+        tools:layout="@layout/fragment_detail_item" >
+        <action
+            android:id="@+id/action_detailItemFragment_to_realMainFragment"
+            app:destination="@id/realMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.tick2do.user.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_realMainFragment"
+            app:destination="@id/realMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/realMainFragment"
+        android:name="com.example.tick2do.todo.RealMainFragment"
+        android:label="fragment_real_main"
+        tools:layout="@layout/fragment_real_main" >
+        <action
+            android:id="@+id/action_realMainFragment_to_detailItemFragment"
+            app:destination="@id/detailItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.tick2do.user.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_realMainFragment"
+            app:destination="@id/realMainFragment" />
+    </fragment>
+</navigation>
