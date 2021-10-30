@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity
-data class TodoInfo(val taskName:String,
+data class TodoInfo(val taskName:String ,
                     var isComplete:Boolean,
                     val dueDate:String,
                     val description:String,

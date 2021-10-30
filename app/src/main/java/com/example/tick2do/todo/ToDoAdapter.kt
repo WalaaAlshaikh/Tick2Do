@@ -33,7 +33,7 @@ class ToDoAdapter (val items:List<TodoInfo>,val viewModel:ToDoViewModel):Recycle
     override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
         val item=items[position]
         holder.taskName.text=item.taskName
-        holder.creationdate.text=item.creationDate
+        holder.creationdate.text="Created at ${item.creationDate}"
         holder.isCompleted.isChecked=item.isComplete
 
 
