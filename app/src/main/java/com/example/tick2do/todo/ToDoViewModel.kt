@@ -24,6 +24,7 @@ class ToDoViewModel:ViewModel() {
     }
     fun updateItems(todoitem: TodoInfo){
         viewModelScope.launch {
+
             toDoRepository.updateItems(todoitem)
         }
 

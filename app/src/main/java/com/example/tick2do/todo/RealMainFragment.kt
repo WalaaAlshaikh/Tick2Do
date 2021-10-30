@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -41,6 +42,8 @@ class RealMainFragment : Fragment() {
             it?.let { items ->
                 todoItemsList.clear()
                 todoItemsList.addAll(items)
+                val linearLout: LinearLayout = LinearLayout(context)
+                linearLout.setVisibility(View.INVISIBLE)
                 toDoAdapter.notifyDataSetChanged()
 
             }
@@ -48,6 +51,7 @@ class RealMainFragment : Fragment() {
 
         addFloatingButton.setOnClickListener {
             findNavController().navigate(R.id.action_realMainFragment_to_addItemFragment)
+
         }
 
     }

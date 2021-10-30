@@ -16,6 +16,8 @@ class ToDoAdapter (val items:List<TodoInfo>,val viewModel:ToDoViewModel):Recycle
         val creationdate:TextView=view.findViewById(R.id.creation_date_textview)
         val isCompleted:CheckBox=view.findViewById(R.id.iscompleted_checkBox)
 
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoViewHolder {
@@ -33,6 +35,7 @@ class ToDoAdapter (val items:List<TodoInfo>,val viewModel:ToDoViewModel):Recycle
         holder.taskName.text=item.taskName
         holder.creationdate.text=item.creationDate
         holder.isCompleted.isChecked=item.isComplete
+
 
         holder.itemView.setOnClickListener { it ->
             viewModel.selectedItemMutableLiveData.postValue(item)
