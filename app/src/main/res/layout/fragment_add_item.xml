@@ -64,19 +64,6 @@
             android:hint=" Due Date"
             android:inputType="date" />
 
-        <DatePicker
-            android:id="@+id/date_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="#FFFFFF"
-            android:calendarTextColor="#4E3F3F"
-            android:datePickerMode="calendar"
-            android:headerBackground="@color/Peach">
-
-        </DatePicker>
-
         <Button
             android:id="@+id/add_item_button"
             android:layout_width="match_parent"

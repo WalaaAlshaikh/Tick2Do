@@ -42,11 +42,16 @@ class DetailItemFragment : Fragment() {
 
         toDoViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {item ->
-                taskNameTextView.text="Task: ${item.taskName}"
-                taskDescriptionTextView.text="Description: ${item.description}"
-                taskCreationDateTextView.text="Creation Date: ${item.creationDate}"
+                taskNameTextView.text="\bTask: ${item.taskName}"
+                taskDescriptionTextView.text="\bDescription: ${item.description}"
+                taskCreationDateTextView.text="\bCreation Date: ${item.creationDate}"
                 taskDueDateTextView.text="Due Date: ${item.dueDate}"
-                taskStatus.text="Task Status: ${item.isComplete}"
+                taskStatus.text=item.isComplete.toString()
+                if (item.isComplete == true){
+                    taskStatus.text="Task Status: Completed"
+                }else{
+                    taskStatus.text="Task Status: Uncompleted"
+                }
                 selectedItem=item
 
             }

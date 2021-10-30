@@ -10,8 +10,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ToDoViewModel:ViewModel() {
-    private val toDoRepository=ToDoReop.get()
-    val doDoItems=toDoRepository.getItems()
+    private var toDoRepository=ToDoReop.get()
+    var doDoItems=toDoRepository.getItems()
     var selectedItemMutableLiveData= MutableLiveData<TodoInfo>()
 
     fun addItem(name:String,description:String,duedate:String,check:Boolean){
@@ -20,6 +20,7 @@ class ToDoViewModel:ViewModel() {
             val sdf=SimpleDateFormat("dd/M/yyyy hh:mm:ss")
             val currentDate=sdf.format(Date())
            toDoRepository.addItems(TodoInfo(name,check,duedate,description,currentDate))
+
        }
     }
     fun updateItems(todoitem: TodoInfo){

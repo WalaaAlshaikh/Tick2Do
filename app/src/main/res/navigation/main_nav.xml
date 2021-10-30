@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/addItemFragment"
         android:name="com.example.tick2do.todo.AddItemFragment"
-        android:label="fragment_add_item"
+        android:label="Add Task"
         tools:layout="@layout/fragment_add_item" />
     <fragment
         android:id="@+id/mainPageFragment"
@@ -25,11 +25,13 @@
     <fragment
         android:id="@+id/detailItemFragment"
         android:name="com.example.tick2do.todo.DetailItemFragment"
-        android:label="fragment_detail_item"
-        tools:layout="@layout/fragment_detail_item" >
+        android:label="Task Details"
+        tools:layout="@layout/fragment_detail_item">
         <action
             android:id="@+id/action_detailItemFragment_to_realMainFragment"
-            app:destination="@id/realMainFragment" />
+            app:destination="@id/realMainFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -43,14 +45,18 @@
     <fragment
         android:id="@+id/realMainFragment"
         android:name="com.example.tick2do.todo.RealMainFragment"
-        android:label="fragment_real_main"
-        tools:layout="@layout/fragment_real_main" >
+        android:label="Tick 2 Do"
+        tools:layout="@layout/fragment_real_main">
         <action
             android:id="@+id/action_realMainFragment_to_addItemFragment"
-            app:destination="@id/addItemFragment" />
+            app:destination="@id/addItemFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_realMainFragment_to_detailItemFragment"
-            app:destination="@id/detailItemFragment" />
+            app:destination="@id/detailItemFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

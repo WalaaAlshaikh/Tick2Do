@@ -43,7 +43,6 @@ class AddItemFragment : Fragment() {
         val addTaskEditText:EditText=view.findViewById(R.id.add_task_edittext)
         val addDescriptionEditText:EditText=view.findViewById(R.id.add_description_edittext)
         val addDueDateEditText:EditText=view.findViewById(R.id.add_date_edittext)
-        val datePicker:DatePicker=view.findViewById(R.id.date_picker)
         val addTaskButton: Button =view.findViewById(R.id.add_item_button)
 
 
