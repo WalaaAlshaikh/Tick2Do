@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.tick2do.R
+import java.text.SimpleDateFormat
 import java.time.Month
 import java.time.Year
 import java.util.*
@@ -42,11 +43,14 @@ class AddItemFragment : Fragment() {
 
         val addTaskEditText:EditText=view.findViewById(R.id.add_task_edittext)
         val addDescriptionEditText:EditText=view.findViewById(R.id.add_description_edittext)
-        val addDueDateEditText:EditText=view.findViewById(R.id.add_date_edittext)
+        val addDueDateEditText:EditText=view.findViewById(R.id.add_Date_edittexts)
         val addTaskButton: Button =view.findViewById(R.id.add_item_button)
 
 
-        addDueDateEditText.setOnClickListener{
+
+
+
+        addDueDateEditText.setOnClickListener() {
             val calender=Calendar.getInstance()
             val year:Int=calender.get(Calendar.YEAR)
             val month:Int=calender.get(Calendar.MONTH)
@@ -59,11 +63,14 @@ class AddItemFragment : Fragment() {
 
                 }
 
+
+
+
         mDateSet= OnDateSetListener { datePicker, year, month, day ->
-            var month = month
-            month = month + 1
-            Log.d(TAG, "onDateSet: dd/mm/yyy: $day/$month/$year")
-            val date = "$day/$month/$year"
+//            var month = month
+//            month = month + 1
+            //Log.d(TAG, "onDateSet:yyy MMMM dd: $year $month $day")
+            val date = "$year/ $month/ $day"
                 addDueDateEditText.setText(date)}
 
         addTaskButton.setOnClickListener {

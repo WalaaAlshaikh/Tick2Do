@@ -35,6 +35,7 @@ class RealMainFragment : Fragment() {
         val todoRecyclerView:RecyclerView=view.findViewById(R.id.todo_recyclerView)
         val addFloatingButton:FloatingActionButton=view.findViewById(R.id.add_floating_button)
         val toDoAdapter=ToDoAdapter(todoItemsList,toDoViewModel)
+        val linearLayout: LinearLayout = view.findViewById(R.id.linearLayout4)
 
         todoRecyclerView.adapter=toDoAdapter
 
@@ -42,8 +43,12 @@ class RealMainFragment : Fragment() {
             it?.let { items ->
                 todoItemsList.clear()
                 todoItemsList.addAll(items)
-                val linearLout: LinearLayout = LinearLayout(context)
-                linearLout.setVisibility(View.INVISIBLE)
+//                val linearLout: LinearLayout = LinearLayout(context)
+                linearLayout.setVisibility(View.INVISIBLE)
+                if(todoItemsList.isNullOrEmpty()){
+                    linearLayout.setVisibility(View.VISIBLE)
+                }
+
                 toDoAdapter.notifyDataSetChanged()
 
             }

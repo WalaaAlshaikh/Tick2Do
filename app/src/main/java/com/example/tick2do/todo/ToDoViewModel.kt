@@ -17,7 +17,7 @@ class ToDoViewModel:ViewModel() {
     fun addItem(name:String,description:String,duedate:String,check:Boolean){
 
         viewModelScope.launch {
-            val sdf=SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+            val sdf=SimpleDateFormat("yyyy/M/dd")
             val currentDate=sdf.format(Date())
            toDoRepository.addItems(TodoInfo(name,check,duedate,description,currentDate))
 

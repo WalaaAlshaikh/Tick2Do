@@ -31,6 +31,7 @@
             android:id="@+id/action_detailItemFragment_to_realMainFragment"
             app:destination="@id/realMainFragment"
             app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
@@ -50,13 +51,11 @@
         <action
             android:id="@+id/action_realMainFragment_to_addItemFragment"
             app:destination="@id/addItemFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:popEnterAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@android:anim/slide_in_left" />
         <action
             android:id="@+id/action_realMainFragment_to_detailItemFragment"
             app:destination="@id/detailItemFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:popEnterAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
