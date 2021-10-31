@@ -43,7 +43,8 @@ class RealMainFragment : Fragment() {
             it?.let { items ->
                 todoItemsList.clear()
                 todoItemsList.addAll(items)
-//                val linearLout: LinearLayout = LinearLayout(context)
+
+                // for the visibility of the linearlayout
                 linearLayout.setVisibility(View.INVISIBLE)
                 if(todoItemsList.isNullOrEmpty()){
                     linearLayout.setVisibility(View.VISIBLE)

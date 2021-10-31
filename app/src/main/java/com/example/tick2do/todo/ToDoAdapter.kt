@@ -12,7 +12,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tick2do.R
 import com.example.tick2do.database.model.TodoInfo
-import com.example.tick2do.objects.PassedDueDate
 import java.text.SimpleDateFormat
 import java.util.*
 

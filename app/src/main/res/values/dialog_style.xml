@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="abirStyle" parent="android:Theme.Holo.Light.Dialog.NoActionBar.MinWidth">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:backgroundTint">#FFE4E2</item>
+        <item name="android:actionBarItemBackground">@color/black</item>
+
+<!--        <item name="android:layout_column"></item>-->
+
+
+
+    </style>
+</resources>

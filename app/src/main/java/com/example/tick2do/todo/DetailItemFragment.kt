@@ -18,7 +18,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.tick2do.R
 import com.example.tick2do.database.model.TodoInfo
-import com.example.tick2do.objects.PassedDueDate
+
 import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
@@ -69,7 +69,7 @@ class DetailItemFragment : Fragment() {
                 taskCreationDateTextView.text = item.creationDate
                 /// change the color of due date
 
-                taskDueDateTextView.setTextColor(Color.parseColor(PassedDueDate.passedDueDate(item.dueDate)))
+                //taskDueDateTextView.setTextColor(Color.parseColor(PassedDueDate.passedDueDate(item.dueDate)))
 
                 taskDueDateTextView.setText(item.dueDate)
 
@@ -100,10 +100,12 @@ class DetailItemFragment : Fragment() {
                     val month: Int = calender.get(Calendar.MONTH)
                     val day: Int = calender.get(Calendar.DAY_OF_MONTH)
                     val dailoge: DatePickerDialog = DatePickerDialog(
-                        requireContext(), android.R.style.Theme_Holo_Dialog_MinWidth,
+                        requireContext(),R.style.abirStyle,
                         mDateSets, year, month, day
                     )
                     dailoge.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+
                     dailoge.show()
 
 
@@ -130,7 +132,7 @@ class DetailItemFragment : Fragment() {
 //            } else {
 //                selectedItem.taskName.setPaintFlags(0)
 //            }
-            taskDueDateTextView.setTextColor(Color.parseColor(PassedDueDate.passedDueDate(selectedItem.dueDate)))
+            //taskDueDateTextView.setTextColor(Color.parseColor(PassedDueDate.passedDueDate(selectedItem.dueDate)))
             selectedItem.dueDate = taskDueDateTextView.text.toString()
             selectedItem.description = taskDescriptionTextView.text.toString()
 
