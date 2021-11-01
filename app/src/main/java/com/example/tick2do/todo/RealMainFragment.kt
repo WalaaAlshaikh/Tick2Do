@@ -34,7 +34,8 @@ class RealMainFragment : Fragment() {
     private val todoItemsList= mutableListOf<TodoInfo>()
     private val toDoViewModel:ToDoViewModel by activityViewModels()
     val channelId:String="Channel"
-    val notificationId=1
+    var notificationId=1
+    var counter=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -78,6 +79,13 @@ class RealMainFragment : Fragment() {
                 }
 
                 var afterReturnedList= deadlineTaskApproch(todoItemsList)
+                afterReturnedList.forEach{
+                    notificationId=counter
+
+                    createNotificationChannel("Notice","Due Date Approching",notificationId)
+                    counter++
+
+                }
 
                 toDoAdapter.notifyDataSetChanged()
 
