@@ -1,5 +1,6 @@
 package com.example.tick2do.todo
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.graphics.Paint
@@ -48,18 +49,10 @@ class DetailItemFragment : Fragment() {
         val taskStatus: TextView = view.findViewById(R.id.status_textview)
         val editButton: Button = view.findViewById(R.id.edit_button)
         val deleteButton: Button = view.findViewById(R.id.delete_button)
-        val cancelButton:Button=view.findViewById(R.id.cancel_button)
-        val sdf= SimpleDateFormat("yyyy mmmm dd")
-        val currentDate=sdf.format(Date())
-//        val spinner: Spinner = Spinner(requireContext())
-//        val numList = listOf<String>(
-//            "Completed,Uncompleted"
-//        )
-//        val layout: LinearLayout = LinearLayout(requireContext())
-//        val listAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, numList)
-//        listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//        spinner.adapter = listAdapter
-//        layout.addView(spinner)
+        val cancelButton: Button = view.findViewById(R.id.cancel_button)
+        val sdf = SimpleDateFormat("yyyy mmmm dd")
+        val currentDate = sdf.format(Date())
+//
 
 
         toDoViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner, Observer {
@@ -68,8 +61,6 @@ class DetailItemFragment : Fragment() {
                 taskDescriptionTextView.setText(item.description)
                 taskCreationDateTextView.text = item.creationDate
                 /// change the color of due date
-
-                //taskDueDateTextView.setTextColor(Color.parseColor(PassedDueDate.passedDueDate(item.dueDate)))
 
                 taskDueDateTextView.setText(item.dueDate)
 
@@ -100,7 +91,7 @@ class DetailItemFragment : Fragment() {
                     val month: Int = calender.get(Calendar.MONTH)
                     val day: Int = calender.get(Calendar.DAY_OF_MONTH)
                     val dailoge: DatePickerDialog = DatePickerDialog(
-                        requireContext(),R.style.abirStyle,
+                        requireContext(), R.style.abirStyle,
                         mDateSets, year, month, day
                     )
                     dailoge.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -126,13 +117,6 @@ class DetailItemFragment : Fragment() {
         editButton.setOnClickListener {
 
             selectedItem.taskName = taskNameTextView.text.toString()
-            // selectedItem.isComplete =
-//            if (selectedItem.isComplete) {
-//                selectedItem.taskName.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-//            } else {
-//                selectedItem.taskName.setPaintFlags(0)
-//            }
-            //taskDueDateTextView.setTextColor(Color.parseColor(PassedDueDate.passedDueDate(selectedItem.dueDate)))
             selectedItem.dueDate = taskDueDateTextView.text.toString()
             selectedItem.description = taskDescriptionTextView.text.toString()
 
@@ -147,11 +131,34 @@ class DetailItemFragment : Fragment() {
 
 
         deleteButton.setOnClickListener {
-            toDoViewModel.deleteItem(selectedItem)
-            findNavController().popBackStack()
+            // pop up warning window for confirmation of task deleting
+            val aluilder = AlertDialog.Builder(requireContext())
+            aluilder.setTitle("Delete Notification")
+            aluilder.setMessage("This task will be deleted and it can not be undone \n Are you sure you want to do this")
+            aluilder.setPositiveButton("Yes") { dialogInterface, which ->
+                toDoViewModel.deleteItem(selectedItem)
+                findNavController().popBackStack()
+            }
+
+            aluilder.setNegativeButton("No") { dialogInterface, which ->
+
+            }
+            val theDialog: AlertDialog = aluilder.create()
+            theDialog.setCancelable(false)
+            theDialog.show()
+
         }
 
     }
 
 
 }
+//val spinner: Spinner = Spinner(requireContext())
+//        val numList = listOf<String>(
+//            "Completed,Uncompleted"
+//        )
+//        val layout: LinearLayout = LinearLayout(requireContext())
+//        val listAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, numList)
+//        listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//        spinner.adapter = listAdapter
+//        layout.addView(spinner)
