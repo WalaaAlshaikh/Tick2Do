@@ -54,24 +54,28 @@ class AddItemFragment : Fragment() {
             val calender=Calendar.getInstance()
             val year:Int=calender.get(Calendar.YEAR)
             val month:Int=calender.get(Calendar.MONTH)
-            val day:Int=calender.get(Calendar.DAY_OF_MONTH)
+            var day:Int=calender.get(Calendar.DAY_OF_MONTH)
             val dailoge:DatePickerDialog= DatePickerDialog(requireContext(),android.R.style.Theme_Holo_Dialog_MinWidth,
             mDateSet,year,month,day)
             dailoge.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dailoge.show()
 
-
                 }
 
-
-
-
         mDateSet= OnDateSetListener { datePicker, year, month, day ->
-//            var month = month
-//            month = month + 1
+            var months = month
+            months = months + 1
+            var days = day
             //Log.d(TAG, "onDateSet:yyy MMMM dd: $year $month $day")
-            val date = "$year/ $month/ $day"
-                addDueDateEditText.setText(date)}
+            if(month<10) months = "0$months".toInt()
+            if(day<10) days="0$days".toInt()
+            val date = "$year/$months/$days"
+                addDueDateEditText.setText(date)
+            Log.d("day","$date")
+        }
+
+
+
 
         addTaskButton.setOnClickListener {
             val taskName=addTaskEditText.text.toString()

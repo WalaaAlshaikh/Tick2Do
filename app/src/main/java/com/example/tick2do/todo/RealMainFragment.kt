@@ -23,8 +23,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tick2do.R
 import com.example.tick2do.database.model.TodoInfo
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.text.SimpleDateFormat
 import java.time.Duration
 import java.time.LocalDate
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 
@@ -82,7 +84,7 @@ class RealMainFragment : Fragment() {
                 afterReturnedList.forEach{
                     notificationId=counter
 
-                    createNotificationChannel("Notice","Due Date Approching",notificationId)
+                    createNotificationChannel("Notice","Due Date Approaching",notificationId)
                     counter++
 
                 }
@@ -145,8 +147,8 @@ fun deadlineTaskApproch(list:MutableList<TodoInfo>):MutableList<TodoInfo>{
     list.forEach{
         //////date formatting from string to date/////
         val duedateFormater=it.dueDate
-        val formatter:DateTimeFormatter= DateTimeFormatter.ofPattern("yyyy/mm/dd")
-        var secondDay=LocalDate.parse(duedateFormater,formatter)
+        val formatter = SimpleDateFormat("yyyy/MM/dd")
+        var secondDay=formatter.parse(duedateFormater).toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
         var daysBetween:Long=
             Duration.between(firstDay.atStartOfDay(), secondDay.atStartOfDay()).toDays()
         Log.d("daysbetween", daysBetween.toString())
@@ -155,7 +157,6 @@ fun deadlineTaskApproch(list:MutableList<TodoInfo>):MutableList<TodoInfo>{
             listWhichReturned.add(it)
 
         }
-
     }
     Log.d("The list", listWhichReturned.toString())
     /// return the final change///

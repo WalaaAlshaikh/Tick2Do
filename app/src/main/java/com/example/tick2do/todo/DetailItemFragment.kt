@@ -50,7 +50,7 @@ class DetailItemFragment : Fragment() {
         val editButton: Button = view.findViewById(R.id.edit_button)
         val deleteButton: Button = view.findViewById(R.id.delete_button)
         val cancelButton: Button = view.findViewById(R.id.cancel_button)
-        val sdf = SimpleDateFormat("yyyy mmmm dd")
+        val sdf = SimpleDateFormat("yyyy MM dd")
         val currentDate = sdf.format(Date())
 //
 
