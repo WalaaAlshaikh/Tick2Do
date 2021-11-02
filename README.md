@@ -3,3 +3,8 @@
 Twaiaq Academy First Project
 To-Do list Android Application
 ## Overview:
+## Technologies used:
+## Wireframes and User stories:
+## Development Process and Problem-solving Strategy:
+##  Unsolved Problems which would be fixed in future iterations:
+## My favorite functions work:
