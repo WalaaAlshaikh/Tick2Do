@@ -6,12 +6,12 @@ To-Do list Android Application
 This project represents an android application **Tick2Do**, which helps the user creates and organize their tasks.
 ## Technologies used:
 ### For Designing the logo of the aap:
-*Canva
+* Canva
 
-*Adobe Photoshop
+* Adobe Photoshop
 ### For Designing the pages of the app"
-*Figma 
-*Adobe Illustrator
+* Figma 
+* Adobe Illustrator
 
 ## Wireframes and User stories:
 ## Development Process and Problem-solving Strategy:
