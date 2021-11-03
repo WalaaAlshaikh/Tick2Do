@@ -11,7 +11,9 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,8 +107,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/completed_recyclerview"
-        android:layout_width="386dp"
-        android:layout_height="252dp"
+        android:layout_width="394dp"
+        android:layout_height="267dp"
         android:layout_marginTop="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,14 +117,17 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/todo_recyclerView">
+        app:layout_constraintTop_toBottomOf="@+id/todo_recyclerView"
+        app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom"
@@ -142,12 +147,11 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-
     <View
         android:id="@+id/divider"
         android:layout_width="409dp"
         android:layout_height="1dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         tools:layout_editor_absoluteX="1dp" />
@@ -160,8 +164,8 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/stroke_button"
         android:padding="5dp"
-        android:text="Uncompleted:"
-        android:textColor="#FF9F9F"
+        android:text="Uncompleted :"
+        android:textColor="#7E7E7E"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

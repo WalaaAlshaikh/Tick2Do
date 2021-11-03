@@ -122,11 +122,6 @@ class DetailItemFragment : Fragment() {
 
                 toDoViewModel.updateItems(selectedItem)
                 findNavController().popBackStack()
-//            }else{
-//                Toast.makeText(requireContext(), "You need to add the task name first", Toast.LENGTH_SHORT).show()
-//            }
-//        if(taskNameTextView.text.isNotEmpty()){
-
 
         }
         cancelButton.setOnClickListener {
@@ -160,12 +155,3 @@ class DetailItemFragment : Fragment() {
 
 
 }
-//val spinner: Spinner = Spinner(requireContext())
-//        val numList = listOf<String>(
-//            "Completed,Uncompleted"
-//        )
-//        val layout: LinearLayout = LinearLayout(requireContext())
-//        val listAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, numList)
-//        listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//        spinner.adapter = listAdapter
-//        layout.addView(spinner)

@@ -47,15 +47,12 @@ class AddItemFragment : Fragment() {
         val addTaskButton: Button =view.findViewById(R.id.add_item_button)
 
 
-
-
-
         addDueDateEditText.setOnClickListener() {
             val calender=Calendar.getInstance()
             val year:Int=calender.get(Calendar.YEAR)
             val month:Int=calender.get(Calendar.MONTH)
             var day:Int=calender.get(Calendar.DAY_OF_MONTH)
-            val dailoge:DatePickerDialog= DatePickerDialog(requireContext(),android.R.style.Theme_Holo_Dialog_MinWidth,
+            val dailoge:DatePickerDialog= DatePickerDialog(requireContext(),R.style.abirStyle,
             mDateSet,year,month,day)
             dailoge.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dailoge.show()
@@ -73,7 +70,6 @@ class AddItemFragment : Fragment() {
                 addDueDateEditText.setText(date)
             Log.d("day","$date")
         }
-
 
 
 

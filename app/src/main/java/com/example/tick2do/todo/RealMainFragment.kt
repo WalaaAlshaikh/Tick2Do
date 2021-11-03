@@ -77,24 +77,14 @@ class RealMainFragment : Fragment() {
 
 
 
-        // for the visibility of the linearlayout
 
 
         toDoViewModel.doDoItems.observe(viewLifecycleOwner, Observer {
             it?.let { items ->
-                ///for visibility of layout
-
-
-//            linearLayout.setVisibility(View.INVISIBLE)
-//        }
-//        else
-//        {
-//            linearLayout.setVisibility(View.VISIBLE)
-//        }
 
                 Log.d("uncomplete"," ${items}list size")
 
-
+               ///for visibility of layout
                 if (items.isNotEmpty()) {
                     linearLayout.visibility = View.INVISIBLE
                 }else if (items.isEmpty() && uncompletedList.isEmpty())
@@ -114,19 +104,14 @@ class RealMainFragment : Fragment() {
                 }
 
                 toDoAdapter.notifyDataSetChanged()
-//                if(todoItemsList.isEmpty()){
-//                    ubcompletedTextView.setVisibility(View.GONE)
-//                }else{
-//                    ubcompletedTextView.setVisibility(View.VISIBLE)
-//                }
 
 
-
-                if(todoItemsList.size ==0){
+                if(todoItemsList.size==0){
 
                     completedTextView.setVisibility(View.GONE)
                 }else{
                     completedTextView.setVisibility(View.VISIBLE)
+                    ubcompletedTextView.setVisibility(View.VISIBLE)
                 }
 
 
@@ -144,60 +129,14 @@ class RealMainFragment : Fragment() {
                 else if (items.isEmpty() && todoItemsList.isEmpty())
                     linearLayout.visibility = View.VISIBLE
 
-
-
                 uncompletedList.clear()
                 uncompletedList.addAll(items)
-//                var afterReturnedList= deadlineTaskApproch(completedList)
-//                afterReturnedList.forEach{
-//                    notificationId=counter
-//
-//                    createNotificationChannel("Notice","Due Date Approaching",notificationId)
-//                    counter++
-//
-//                }
 
-                //linearLayout.setVisibility(View.GONE)
-
-//                if(todoItemsList.isNullOrEmpty()){
-//                    linearLayout.setVisibility(View.VISIBLE)
-//                }
                 completedAdapter.notifyDataSetChanged()
 
 
             }
         })
-
-
-
-//        if(todoItemsList.size > 0 || completedList.size > 0){
-//            linearLayout.setVisibility(View.INVISIBLE)
-//        }
-//        else
-//        {
-//            linearLayout.setVisibility(View.VISIBLE)
-//        }
-//
-//        if(todoItemsList.size == 0 && completedList.size == 0){
-//            completedTextView.setVisibility(View.INVISIBLE)
-//            ubcompletedTextView.setVisibility(View.INVISIBLE)
-//        }
-//        else if(todoItemsList.size == 0 && completedList.size > 0){
-//            completedTextView.setVisibility(View.VISIBLE)
-//            ubcompletedTextView.setVisibility(View.INVISIBLE)
-//        }
-//        else if(todoItemsList.size > 0 && completedList.size == 0){
-//            completedTextView.setVisibility(View.INVISIBLE)
-//            ubcompletedTextView.setVisibility(View.VISIBLE)
-//        }
-//        else if(todoItemsList.size > 0 && completedList.size > 0){
-//            completedTextView.setVisibility(View.VISIBLE)
-//            ubcompletedTextView.setVisibility(View.VISIBLE)
-//        }
-
-
-
-
 
         addFloatingButton.setOnClickListener {
 
@@ -207,13 +146,14 @@ class RealMainFragment : Fragment() {
 
 
     }
+    /////// function for creating channel notification
     fun createNotificationChannel(name:String,descriptionText:String,id:Int) {
         var builder = NotificationCompat.Builder(requireContext(), channelId)
             .setSmallIcon(R.drawable.logo)
             .setContentTitle("Approached Date")
             .setContentText("There are tasks which their due date is approaching within 24 hours")
             .setStyle(NotificationCompat.BigTextStyle()
-                .bigText("Your Due Date is approaching within 24 hours"))
+                .bigText("There are tasks which their due date is approaching within 24 hours"))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library

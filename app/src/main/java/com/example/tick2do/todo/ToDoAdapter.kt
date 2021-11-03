@@ -15,13 +15,12 @@ import com.example.tick2do.database.model.TodoInfo
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ToDoAdapter (val items:List<TodoInfo>,val viewModel:ToDoViewModel):RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>(){
-    class ToDoViewHolder(view: View):RecyclerView.ViewHolder(view){
-        val taskName:TextView=view.findViewById(R.id.task_textview)
-        val duedate:TextView=view.findViewById(R.id.due_date_textview)
-        val isCompleted:CheckBox=view.findViewById(R.id.iscompleted_checkBox)
-
-
+class ToDoAdapter(val items: List<TodoInfo>, val viewModel: ToDoViewModel) :
+    RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
+    class ToDoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val taskName: TextView = view.findViewById(R.id.task_textview)
+        val duedate: TextView = view.findViewById(R.id.due_date_textview)
+        val isCompleted: CheckBox = view.findViewById(R.id.iscompleted_checkBox)
 
     }
 
@@ -31,31 +30,34 @@ class ToDoAdapter (val items:List<TodoInfo>,val viewModel:ToDoViewModel):Recycle
                 R.layout.item_layout,
                 parent,
                 false
-            ))
-
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
-        val item=items[position]
+        val item = items[position]
 
-        holder.taskName.text=item.taskName
+        holder.taskName.text = item.taskName
 
-        holder.duedate.text="Due Date: ${item.dueDate}"
+        holder.duedate.text = "Due Date: ${item.dueDate}"
 
 
-        holder.isCompleted.isChecked=item.isComplete
+        holder.isCompleted.isChecked = item.isComplete
 ///////////// for striking the completed tasks
-        if(item.isComplete){
-            holder.taskName.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
+        if (item.isComplete) {
+            holder.taskName.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            holder.duedate.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
+        } else {holder.taskName.paintFlags = 0
+                holder.duedate.paintFlags=0 }
 
-        }else holder.taskName.paintFlags=0
-        var dueDate= Date()
-        val format=SimpleDateFormat("yyyy/MM/dd")
-        val date=format.parse(item.dueDate)
-        if (dueDate>=date) {
+
+        var dueDate = Date()
+        val format = SimpleDateFormat("yyyy/MM/dd")
+        val date = format.parse(item.dueDate)
+        if (dueDate >= date) {
             holder.duedate.setTextColor(Color.RED)
-            holder.duedate.text="Due Date: ${item.dueDate} (passed)"
-        }
+            holder.duedate.text = "Due Date: ${item.dueDate} (passed)"
+        }else holder.duedate.setTextColor(Color.GRAY)
 
         holder.itemView.setOnClickListener { it ->
             viewModel.selectedItemMutableLiveData.postValue(item)
@@ -63,17 +65,15 @@ class ToDoAdapter (val items:List<TodoInfo>,val viewModel:ToDoViewModel):Recycle
 
 
         }
-        holder.isCompleted.setOnClickListener{
-            item.isComplete=holder.isCompleted.isChecked
+        holder.isCompleted.setOnClickListener {
+            item.isComplete = holder.isCompleted.isChecked
 //
-            if(holder.isCompleted.isChecked){
-                Log.d("onBindViewHolder", "isChecked")
-                holder.taskName.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
-            }else{
-                holder.taskName.setPaintFlags(0)
-            }
-
-
+//            if (holder.isCompleted.isChecked) {
+//                Log.d("onBindViewHolder", "isChecked")
+//                holder.taskName.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+//            } else {
+//                holder.taskName.setPaintFlags(0)
+//            }
 
             viewModel.updateItems(item)
         }
@@ -81,7 +81,7 @@ class ToDoAdapter (val items:List<TodoInfo>,val viewModel:ToDoViewModel):Recycle
     }
 
     override fun getItemCount(): Int {
-       return items.size
+        return items.size
     }
 
 }
