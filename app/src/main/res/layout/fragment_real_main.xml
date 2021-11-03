@@ -36,16 +36,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/todo_recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="538dp"
+        android:layout_width="398dp"
+        android:layout_height="0dp"
         android:layout_margin="10dp"
-        android:layout_marginBottom="40dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/uncompelted_textview" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -91,7 +89,33 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/completed_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/stroke_button"
+        android:padding="5dp"
+        android:text="Completed:"
+        android:textColor="#FFA3A3"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todo_recyclerView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/completed_recyclerview"
+        android:layout_width="386dp"
+        android:layout_height="252dp"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/completed_textview"
+        tools:layout_editor_absoluteX="10dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -126,5 +150,20 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         tools:layout_editor_absoluteX="1dp" />
+
+    <TextView
+        android:id="@+id/uncompelted_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/stroke_button"
+        android:padding="5dp"
+        android:text="Uncompleted:"
+        android:textColor="#FF9F9F"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

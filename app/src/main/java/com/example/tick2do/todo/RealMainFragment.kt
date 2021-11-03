@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -34,6 +35,7 @@ class RealMainFragment : Fragment() {
 
 
     private val todoItemsList= mutableListOf<TodoInfo>()
+    private val uncompletedList= mutableListOf<TodoInfo>()
     private val toDoViewModel:ToDoViewModel by activityViewModels()
     val channelId:String="Channel"
     var notificationId=1
@@ -63,22 +65,39 @@ class RealMainFragment : Fragment() {
 
 
         val todoRecyclerView:RecyclerView=view.findViewById(R.id.todo_recyclerView)
+        val completedRecyclerView:RecyclerView=view.findViewById(R.id.completed_recyclerview)
         val addFloatingButton:FloatingActionButton=view.findViewById(R.id.add_floating_button)
         val toDoAdapter=ToDoAdapter(todoItemsList,toDoViewModel)
+        val completedAdapter=ToDoAdapter(uncompletedList,toDoViewModel)
         val linearLayout: LinearLayout = view.findViewById(R.id.linearLayout4)
+        val completedTextView:TextView=view.findViewById(R.id.completed_textview)
+        val ubcompletedTextView:TextView=view.findViewById(R.id.uncompelted_textview)
+        todoRecyclerView.adapter=completedAdapter
+        completedRecyclerView.adapter=toDoAdapter
 
-        todoRecyclerView.adapter=toDoAdapter
+
+
+        // for the visibility of the linearlayout
+
 
         toDoViewModel.doDoItems.observe(viewLifecycleOwner, Observer {
             it?.let { items ->
+                ///for visibility of layout
+
+
+//            linearLayout.setVisibility(View.INVISIBLE)
+//        }
+//        else
+//        {
+//            linearLayout.setVisibility(View.VISIBLE)
+//        }
+
+
+
+                linearLayout.setVisibility(View.INVISIBLE)
+                if (todoItemsList.size==0 && uncompletedList.size==0) linearLayout.setVisibility(View.VISIBLE)
                 todoItemsList.clear()
                 todoItemsList.addAll(items)
-
-                // for the visibility of the linearlayout
-                linearLayout.setVisibility(View.INVISIBLE)
-                if(todoItemsList.isNullOrEmpty()){
-                    linearLayout.setVisibility(View.VISIBLE)
-                }
 
                 var afterReturnedList= deadlineTaskApproch(todoItemsList)
                 afterReturnedList.forEach{
@@ -91,9 +110,76 @@ class RealMainFragment : Fragment() {
 
                 toDoAdapter.notifyDataSetChanged()
 
+
+
+                if(todoItemsList.size ==0){
+
+                    completedTextView.setVisibility(View.GONE)
+                }else{
+                    completedTextView.setVisibility(View.VISIBLE)
+                }
+
+
             }
         })
 
+
+        toDoViewModel.uncompletedItem.observe(viewLifecycleOwner, Observer {
+            it?.let { items ->
+                completedTextView.setVisibility(View.VISIBLE)
+                ubcompletedTextView.setVisibility(View.VISIBLE)
+
+
+                uncompletedList.clear()
+                uncompletedList.addAll(items)
+//                var afterReturnedList= deadlineTaskApproch(completedList)
+//                afterReturnedList.forEach{
+//                    notificationId=counter
+//
+//                    createNotificationChannel("Notice","Due Date Approaching",notificationId)
+//                    counter++
+//
+//                }
+
+                //linearLayout.setVisibility(View.GONE)
+
+//                if(todoItemsList.isNullOrEmpty()){
+//                    linearLayout.setVisibility(View.VISIBLE)
+//                }
+                completedAdapter.notifyDataSetChanged()
+
+
+            }
+        })
+        linearLayout.setVisibility(View.INVISIBLE)
+        if (todoItemsList.size==0 && uncompletedList.size==0) linearLayout.setVisibility(View.VISIBLE)
+
+
+
+//        if(todoItemsList.size > 0 || completedList.size > 0){
+//            linearLayout.setVisibility(View.INVISIBLE)
+//        }
+//        else
+//        {
+//            linearLayout.setVisibility(View.VISIBLE)
+//        }
+//
+//        if(todoItemsList.size == 0 && completedList.size == 0){
+//            completedTextView.setVisibility(View.INVISIBLE)
+//            ubcompletedTextView.setVisibility(View.INVISIBLE)
+//        }
+//        else if(todoItemsList.size == 0 && completedList.size > 0){
+//            completedTextView.setVisibility(View.VISIBLE)
+//            ubcompletedTextView.setVisibility(View.INVISIBLE)
+//        }
+//        else if(todoItemsList.size > 0 && completedList.size == 0){
+//            completedTextView.setVisibility(View.INVISIBLE)
+//            ubcompletedTextView.setVisibility(View.VISIBLE)
+//        }
+//        else if(todoItemsList.size > 0 && completedList.size > 0){
+//            completedTextView.setVisibility(View.VISIBLE)
+//            ubcompletedTextView.setVisibility(View.VISIBLE)
+//        }
 
 
 
@@ -113,7 +199,7 @@ class RealMainFragment : Fragment() {
             .setContentTitle("Approached Date")
             .setContentText("There are tasks which their due date is approaching within 24 hours")
             .setStyle(NotificationCompat.BigTextStyle()
-                .bigText("Much longer text that cannot fit one line..."))
+                .bigText("Your Due Date is approaching within 24 hours"))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -152,7 +238,7 @@ fun deadlineTaskApproch(list:MutableList<TodoInfo>):MutableList<TodoInfo>{
         var daysBetween:Long=
             Duration.between(firstDay.atStartOfDay(), secondDay.atStartOfDay()).toDays()
         Log.d("daysbetween", daysBetween.toString())
-        if (daysBetween.toString()=="1"){
+        if (daysBetween.toString()=="1" && it.isComplete){
             Log.d(" the list", "inside if")
             listWhichReturned.add(it)
 

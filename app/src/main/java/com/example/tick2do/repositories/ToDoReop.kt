@@ -12,7 +12,8 @@ class ToDoReop (context:Context) {
     private val database: TodoDatabase = Room.databaseBuilder(context,TodoDatabase::class.java,
         DATABASE_NAME).fallbackToDestructiveMigration().build()
     private val toDoDao=database.todoDao()
-    fun getItems()=toDoDao.getItem()
+    fun getItems()=toDoDao.getItem(true)
+    fun getUnCompletedItems()=toDoDao.getItem(false)
     suspend fun addItems (todoitem:TodoInfo)=toDoDao.addItem(todoitem)
     suspend fun updateItems (todoitem:TodoInfo)=toDoDao.updateItem(todoitem)
     suspend fun deleteItems (todoitem:TodoInfo)=toDoDao.deleteItem(todoitem)

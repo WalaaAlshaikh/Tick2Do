@@ -12,6 +12,8 @@ import java.util.*
 class ToDoViewModel:ViewModel() {
     private var toDoRepository=ToDoReop.get()
     var doDoItems=toDoRepository.getItems()
+    var uncompletedItem=toDoRepository.getUnCompletedItems()
+
     var selectedItemMutableLiveData= MutableLiveData<TodoInfo>()
 
     fun addItem(name:String,description:String,duedate:String,check:Boolean){

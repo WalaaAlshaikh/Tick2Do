@@ -81,10 +81,16 @@ class AddItemFragment : Fragment() {
             val taskName=addTaskEditText.text.toString()
             val description=addDescriptionEditText.text.toString()
             val dueDate=addDueDateEditText.text.toString()
+            if (taskName.isNotEmpty()){
+                toDoViewModel.addItem(taskName,description,dueDate,check = false)
 
-            toDoViewModel.addItem(taskName,description,dueDate,check = false)
+                findNavController().popBackStack()
+            }else{
+                Toast.makeText(requireContext(), "You need to add the task name first", Toast.LENGTH_SHORT).show()
+            }
 
-            findNavController().popBackStack()
+
+
 
         }
 

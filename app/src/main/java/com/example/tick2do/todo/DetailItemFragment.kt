@@ -120,8 +120,14 @@ class DetailItemFragment : Fragment() {
             selectedItem.dueDate = taskDueDateTextView.text.toString()
             selectedItem.description = taskDescriptionTextView.text.toString()
 
-            toDoViewModel.updateItems(selectedItem)
-            findNavController().popBackStack()
+                toDoViewModel.updateItems(selectedItem)
+                findNavController().popBackStack()
+//            }else{
+//                Toast.makeText(requireContext(), "You need to add the task name first", Toast.LENGTH_SHORT).show()
+//            }
+//        if(taskNameTextView.text.isNotEmpty()){
+
+
         }
         cancelButton.setOnClickListener {
             toDoViewModel.updateItems(selectedItem)

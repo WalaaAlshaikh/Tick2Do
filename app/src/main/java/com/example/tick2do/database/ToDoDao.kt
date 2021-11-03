@@ -8,8 +8,9 @@ import com.example.tick2do.database.model.TodoInfo
 interface ToDoDao {
     @Insert
     suspend fun addItem(todoitem:TodoInfo)
-    @Query("SELECT * FROM todoinfo")
-    fun getItem():LiveData<List<TodoInfo>>
+    @Query("SELECT * FROM todoinfo WHERE isComplete = :completed")
+    fun getItem(completed:Boolean):LiveData<List<TodoInfo>>
+
     @Update
     suspend fun updateItem(todoitem: TodoInfo)
     @Delete
