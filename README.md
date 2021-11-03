@@ -24,7 +24,6 @@ This application was built using the following technologies:
 * RecyclerViews & Adapters.
 * Required Libraries
 
-
 ## Wireframes and User stories:
 - As a user,I want to display a list so that I can view my tasks.
 
@@ -53,16 +52,43 @@ Follow the steps below to get started with the project's development environment
  ```kotlin 
  $ cd firstprojectWalaaAlshaikh
  ```
+ 4. List of the depencenceies used in the project:
+   * for navigation fragments
+    ```kotlin
+    dependencies {
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
+    }
+    ```
+
+   * for notification:
+    ```kotlin
+    val core_version = "1.6.0"
+    dependencies {
+    implementation("androidx.core:core-ktx:$core_version")
+    }
+    ```
+    * for ViewModel
+
+       ```kotlin
+    dependencies {
+   implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-rc01"
+   implementation "androidx.fragment:fragment-ktx:1.3.6"
+    }
+    ```
+ 
  You are ready to develop!
  -----------------------------------------------------------------
  
 ## Development Process and Problem-solving Strategy:
 Firstly, i brainstormed some ideas related to the requirement of to do list app and then took a general idea of the design and the mechanisim of some popular apps from app store
 Secondly, I designed a logo according to the purpose of the app and gave it name.
-Thirdly, I designed the screens each of them suitable for a specific action using the Figma and Photoshop,after that I statred programming my app using the android studio: at first, I installed the required libraries and dependencies and sat up the database
+Thirdly, I designed the screens each of them suitable for a specific action using the Figma and Photoshop,after that I statred programming my app using the android studio: at first, I installed the required libraries and dependencies and sat up the database to store the data of dataModel.
+For many problems that I faced, I need first to decide the nature of the error (if it's syntax, runtime or logical), and then find the solution accordingly.Such solutions that can be disovered when debugging the error, using (Log.d)to specifty the location of the error, searching for similar cases online in [stackoverflow](https://stackoverflow.com/) and asking for the help of the experts.
 ## Unsolved Problems which would be fixed in future iterations:
 * The problem of view the list with more than 6 items.It would be potentially solved by **"DiffUtil"** in order to calculate the updates of the list in the RecyclerView Apapter.
-* some bugs regarding notification such as deciding the exact time to notify the user rather than being inforemd the whole day, also enable the notification to be run in the background which can possibly be solved 
+* some bugs regarding notification such as deciding the exact time to notify the user rather than being inforemd the whole day, also enable the notification to be run even when the app is closed which can possibly be solved by implementing a BroadcastReceiver or by UpdaterServiceManager.
+* some minor issues regarding the enhancment of the design to make the user expereince more dynamic.
 
 ## My favorite functions work:
 * pop up function
