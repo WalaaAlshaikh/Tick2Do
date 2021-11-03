@@ -40,7 +40,33 @@ This project represents an android application **Tick2Do**, which helps the user
 - As a user ,I want to be provideed with a notification so that i can be informed when the deadline is approaching.
 
 - As a user ,I want to split the completed tasks from the uncompleted once so that my task can be more organized and less distracted.
-
+-------------------------------------------------------------------------
 ## Development Process and Problem-solving Strategy:
+Firstly, i brainstormed some ideas related to the requirement of to do list app and then took a general idea of the design and the mechanisim of some popular apps from app store
+Secondly, I designed a logo according to the purpose of the app and gave it name.
+Thirdly, I designed the screens each of them suitable for a specific action using the Figma and Photoshop,after that i statred programming my app using the android studio: at first, I installed the required libraries, then I created the fragments 
 ##  Unsolved Problems which would be fixed in future iterations:
+-The problem of view the list with more than 6 items.It would be potentially solved by **"DiffUtil"** in order to calculate the updates of the list in the RecyclerView Apapter.
+-
+
 ## My favorite functions work:
+* pop up function
+it is useful when you want to give the user a warning or a confirmation of a certain task.
+```kotlin
+val aluilder = AlertDialog.Builder(requireContext())
+            aluilder.setTitle("Delete Notification")
+            aluilder.setMessage("This task will be deleted and it can not be undone \n Are you sure you want to do this")
+            aluilder.setPositiveButton("Yes") { dialogInterface, which ->
+                toDoViewModel.deleteItem(selectedItem)
+                findNavController().popBackStack()
+            }
+
+            aluilder.setNegativeButton("No") { dialogInterface, which ->
+
+            }
+            val theDialog: AlertDialog = aluilder.create()
+            theDialog.setCancelable(false)
+            theDialog.show()
+```            
+* Date Picker as a dialog with customized style
+when you put the date in a dialog it would be easeir to the user to pick the date in a separate page and then designed 
