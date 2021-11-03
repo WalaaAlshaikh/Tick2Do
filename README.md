@@ -18,10 +18,10 @@ This application was built using the following technologies:
 
 * Adobe Photoshop
 ### For Programming the app:
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)
-* Android Architecture Components:Room,LiveData,ViewModel and Data binding
-* Room DataBase
-* RecyclerViews & Adapters
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) for improving code quality.
+* Android Architecture Components:Room,LiveData,ViewModel and Data binding.
+* Room DataBase.
+* RecyclerViews & Adapters.
 * 
 
 
@@ -42,6 +42,9 @@ This application was built using the following technologies:
 
 - As a user ,I want to split the completed tasks from the uncompleted once so that my task can be more organized and less distracted.
 -------------------------------------------------------------------------
+## Installation:
+Follow the steps below to get started with the project's development environment:
+* Install Android Studio from [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk2WOPjxp2Wij5sgO3bAK6Rp18zrs4Y0L5S6W89Fk7OClhAiVuNr1mgaAsT-EALw_wcB&gclsrc=aw.ds)
 ## Development Process and Problem-solving Strategy:
 Firstly, i brainstormed some ideas related to the requirement of to do list app and then took a general idea of the design and the mechanisim of some popular apps from app store
 Secondly, I designed a logo according to the purpose of the app and gave it name.
