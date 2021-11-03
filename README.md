@@ -22,7 +22,7 @@ This application was built using the following technologies:
 * Android Architecture Components:Room,LiveData,ViewModel and Data binding.
 * Room DataBase.
 * RecyclerViews & Adapters.
-* 
+* Required Libraries
 
 
 ## Wireframes and User stories:
@@ -44,17 +44,25 @@ This application was built using the following technologies:
 -------------------------------------------------------------------------
 ## Installation:
 Follow the steps below to get started with the project's development environment:
-* Install Android Studio from [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk2WOPjxp2Wij5sgO3bAK6Rp18zrs4Y0L5S6W89Fk7OClhAiVuNr1mgaAsT-EALw_wcB&gclsrc=aw.ds)
-* Clone this repository:
+1. Install Android Studio from [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk2WOPjxp2Wij5sgO3bAK6Rp18zrs4Y0L5S6W89Fk7OClhAiVuNr1mgaAsT-EALw_wcB&gclsrc=aw.ds)
+2. Clone this repository:
  ```kotlin 
  $ git clone https://github.com/WalaaAlshaikh/firstprojectWalaaAlshaikh.git
  ```
+3. Navigate to the project directory:
+ ```kotlin 
+ $ cd firstprojectWalaaAlshaikh
+ ```
+ You are ready to develop!
+ -----------------------------------------------------------------
+ 
 ## Development Process and Problem-solving Strategy:
 Firstly, i brainstormed some ideas related to the requirement of to do list app and then took a general idea of the design and the mechanisim of some popular apps from app store
 Secondly, I designed a logo according to the purpose of the app and gave it name.
-Thirdly, I designed the screens each of them suitable for a specific action using the Figma and Photoshop,after that i statred programming my app using the android studio: at first, I installed the required libraries, then I created the fragments 
+Thirdly, I designed the screens each of them suitable for a specific action using the Figma and Photoshop,after that I statred programming my app using the android studio: at first, I installed the required libraries and dependencies and sat up the database
 ## Unsolved Problems which would be fixed in future iterations:
-The problem of view the list with more than 6 items.It would be potentially solved by **"DiffUtil"** in order to calculate the updates of the list in the RecyclerView Apapter.
+* The problem of view the list with more than 6 items.It would be potentially solved by **"DiffUtil"** in order to calculate the updates of the list in the RecyclerView Apapter.
+* some bugs regarding notification such as deciding the exact time to notify the user rather than being inforemd the whole day, also enable the notification to be run in the background which can possibly be solved 
 
 ## My favorite functions work:
 * pop up function
@@ -76,4 +84,26 @@ val aluilder = AlertDialog.Builder(requireContext())
             theDialog.show()
 ```            
 * Date Picker as a dialog with customized style
-when you put the date in a dialog it would be easeir to the user to pick the date in a separate page and then designed 
+when you put the date in a dialog it would be easeir to the user to pick the date in a separate page and then designed the dialog to match up with general design of the app.
+ ```kotlin
+ // in class.kt
+ var day:Int=calender.get(Calendar.DAY_OF_MONTH)
+            val dailoge:DatePickerDialog= DatePickerDialog(requireContext(),R.style.abirStyle,
+            mDateSet,year,month,day)
+            dailoge.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dailoge.show()
+
+                }
+  /// in style.xml
+  <resources>
+    <style name="abirStyle" parent="android:Theme.Holo.Light.Dialog.NoActionBar.MinWidth">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:backgroundTint">#FFE4E2</item>
+        <item name="android:actionBarItemBackground">@color/black</item>
+        <item name="android:colorPrimary">@color/black</item>
+        <item name="colorSecondary">@color/Peach</item>
+    </style>
+</resources>
+```
