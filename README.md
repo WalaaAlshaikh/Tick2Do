@@ -76,7 +76,29 @@ Follow the steps below to get started with the project's development environment
    implementation "androidx.fragment:fragment-ktx:1.3.6"
     }
 ```
- 
+   * for live data
+```kotlin
+    dependencies { 
+   implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-rc01"
+   }
+```
+   * for Room Database
+```kotlin
+    dependencies { 
+   id 'kotlin-kapt'
+
+   implementation "androidx.room:room-runtime:2.3.0"
+   implementation "androidx.room:room-ktx:2.3.0"
+   kapt "androidx.room:room-compiler:2.3.0"
+   }
+```
+   * for coroutines
+```kotlin
+    dependencies { 
+   implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
+   }
+```
+
  You are ready to develop!
  -----------------------------------------------------------------
  
