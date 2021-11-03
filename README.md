@@ -25,6 +25,12 @@ This application was built using the following technologies:
 * Required Libraries
 
 ## Wireframes and User stories:
+
+![Wireframe](https://e.top4top.io/p_2133dqw8r1.png)
+
+link to Figma [Figma Wireframe](https://www.figma.com/file/tiecglTdYusR5nzChiX7OM/Tick2Do?node-id=0%3A1)
+
+
 - As a user,I want to display a list so that I can view my tasks.
 
 - As a user, I would like to be able to create multiplte tasks so that I can organize my workload.
