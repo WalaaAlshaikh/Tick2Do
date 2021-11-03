@@ -45,13 +45,16 @@ This application was built using the following technologies:
 ## Installation:
 Follow the steps below to get started with the project's development environment:
 * Install Android Studio from [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk2WOPjxp2Wij5sgO3bAK6Rp18zrs4Y0L5S6W89Fk7OClhAiVuNr1mgaAsT-EALw_wcB&gclsrc=aw.ds)
+* Clone this repository:
+ ```kotlin 
+ $ git clone https://github.com/WalaaAlshaikh/firstprojectWalaaAlshaikh.git
+ ```
 ## Development Process and Problem-solving Strategy:
 Firstly, i brainstormed some ideas related to the requirement of to do list app and then took a general idea of the design and the mechanisim of some popular apps from app store
 Secondly, I designed a logo according to the purpose of the app and gave it name.
 Thirdly, I designed the screens each of them suitable for a specific action using the Figma and Photoshop,after that i statred programming my app using the android studio: at first, I installed the required libraries, then I created the fragments 
-##  Unsolved Problems which would be fixed in future iterations:
--The problem of view the list with more than 6 items.It would be potentially solved by **"DiffUtil"** in order to calculate the updates of the list in the RecyclerView Apapter.
--
+## Unsolved Problems which would be fixed in future iterations:
+The problem of view the list with more than 6 items.It would be potentially solved by **"DiffUtil"** in order to calculate the updates of the list in the RecyclerView Apapter.
 
 ## My favorite functions work:
 * pop up function
