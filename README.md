@@ -59,7 +59,7 @@ Follow the steps below to get started with the project's development environment
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
     }
-    ```
+    ``` 
 
    * for notification:
     ```kotlin
