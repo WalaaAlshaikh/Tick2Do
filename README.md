@@ -68,8 +68,8 @@ Follow the steps below to get started with the project's development environment
     implementation("androidx.core:core-ktx:$core_version")
     }
 ```
-    * for ViewModel
-
+    
+   * for ViewModel
 ```kotlin
     dependencies {
    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-rc01"
