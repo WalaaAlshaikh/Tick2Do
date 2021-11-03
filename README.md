@@ -8,6 +8,7 @@ To-Do list Android Application
 
 This project represents an android application **Tick2Do**, which helps the user creates and organize their tasks.
 ## Technologies used:
+This application was built using the following technologies:
 ### For Designing the logo of the app:
 * Canva
 
@@ -17,10 +18,10 @@ This project represents an android application **Tick2Do**, which helps the user
 
 * Adobe Photoshop
 ### For Programming the app:
-* Android Studio
-
-* Android persistence library:Room
-* RecyclerViews
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)
+* Android Architecture Components:Room,LiveData,ViewModel and Data binding
+* Room DataBase
+* RecyclerViews & Adapters
 * 
 
 
