@@ -54,28 +54,28 @@ Follow the steps below to get started with the project's development environment
  ```
  4. List of the depencenceies used in the project:
    * for navigation fragments
-    ```kotlin
+ ```kotlin
     dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
     }
-    ``` 
+``` 
 
    * for notification:
-    ```kotlin
+```kotlin
     val core_version = "1.6.0"
     dependencies {
     implementation("androidx.core:core-ktx:$core_version")
     }
-    ```
+```
     * for ViewModel
 
-       ```kotlin
+```kotlin
     dependencies {
    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-rc01"
    implementation "androidx.fragment:fragment-ktx:1.3.6"
     }
-    ```
+```
  
  You are ready to develop!
  -----------------------------------------------------------------
