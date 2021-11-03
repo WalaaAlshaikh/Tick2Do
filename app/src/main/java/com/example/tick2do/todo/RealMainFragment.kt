@@ -92,10 +92,15 @@ class RealMainFragment : Fragment() {
 //            linearLayout.setVisibility(View.VISIBLE)
 //        }
 
+                Log.d("uncomplete"," ${items}list size")
 
 
-                linearLayout.setVisibility(View.INVISIBLE)
-                if (todoItemsList.size==0 && uncompletedList.size==0) linearLayout.setVisibility(View.VISIBLE)
+                if (items.isNotEmpty()) {
+                    linearLayout.visibility = View.INVISIBLE
+                }else if (items.isEmpty() && uncompletedList.isEmpty())
+                    linearLayout.visibility = View.VISIBLE
+
+
                 todoItemsList.clear()
                 todoItemsList.addAll(items)
 
@@ -109,6 +114,11 @@ class RealMainFragment : Fragment() {
                 }
 
                 toDoAdapter.notifyDataSetChanged()
+//                if(todoItemsList.isEmpty()){
+//                    ubcompletedTextView.setVisibility(View.GONE)
+//                }else{
+//                    ubcompletedTextView.setVisibility(View.VISIBLE)
+//                }
 
 
 
@@ -120,14 +130,20 @@ class RealMainFragment : Fragment() {
                 }
 
 
+
             }
         })
 
 
         toDoViewModel.uncompletedItem.observe(viewLifecycleOwner, Observer {
             it?.let { items ->
-                completedTextView.setVisibility(View.VISIBLE)
-                ubcompletedTextView.setVisibility(View.VISIBLE)
+//                completedTextView.setVisibility(View.VISIBLE)
+//                ubcompletedTextView.setVisibility(View.VISIBLE)
+                Log.d("complete"," ${items}list size")
+                if (items.isNotEmpty()) linearLayout.visibility = View.INVISIBLE
+                else if (items.isEmpty() && todoItemsList.isEmpty())
+                    linearLayout.visibility = View.VISIBLE
+
 
 
                 uncompletedList.clear()
@@ -151,8 +167,6 @@ class RealMainFragment : Fragment() {
 
             }
         })
-        linearLayout.setVisibility(View.INVISIBLE)
-        if (todoItemsList.size==0 && uncompletedList.size==0) linearLayout.setVisibility(View.VISIBLE)
 
 
 

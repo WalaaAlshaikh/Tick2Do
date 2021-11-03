@@ -8,7 +8,7 @@ import java.util.*
 data class TodoInfo(
     var taskName:String,
     var isComplete:Boolean,
-    var dueDate:String,
-    var description:String,
+    var dueDate:String="",
+    var description:String="",
     val creationDate: String,
     @PrimaryKey(autoGenerate = true)val id:Int=0)

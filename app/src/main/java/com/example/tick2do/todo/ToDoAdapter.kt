@@ -39,16 +39,16 @@ class ToDoAdapter (val items:List<TodoInfo>,val viewModel:ToDoViewModel):Recycle
         val item=items[position]
 
         holder.taskName.text=item.taskName
-//        holder.duedate.setTextColor(Color.parseColor(PassedDueDate.passedDueDate(item.dueDate)))
+
         holder.duedate.text="Due Date: ${item.dueDate}"
 
 
         holder.isCompleted.isChecked=item.isComplete
-
+///////////// for striking the completed tasks
         if(item.isComplete){
             holder.taskName.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
 
-        }
+        }else holder.taskName.paintFlags=0
         var dueDate= Date()
         val format=SimpleDateFormat("yyyy/MM/dd")
         val date=format.parse(item.dueDate)
@@ -73,9 +73,7 @@ class ToDoAdapter (val items:List<TodoInfo>,val viewModel:ToDoViewModel):Recycle
                 holder.taskName.setPaintFlags(0)
             }
 
-//            item.taskName=holder.taskName.apply {
-//                Paint.STRIKE_THRU_TEXT_FLAG
-//            }.toString()
+
 
             viewModel.updateItems(item)
         }

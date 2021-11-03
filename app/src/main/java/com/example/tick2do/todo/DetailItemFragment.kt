@@ -130,6 +130,7 @@ class DetailItemFragment : Fragment() {
 
         }
         cancelButton.setOnClickListener {
+
             toDoViewModel.updateItems(selectedItem)
             findNavController().popBackStack()
         }
