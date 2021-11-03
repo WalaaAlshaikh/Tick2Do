@@ -23,21 +23,21 @@ This project represents an android application **Tick2Do**, which helps the user
 
 
 ## Wireframes and User stories:
-- as a user,I want to display a list so that i can view my tasks.
+- As a user,I want to display a list so that I can view my tasks.
 
-- as a user, I would like to be able to create multiplte tasks ao that I can organize my workload.
+- As a user, I would like to be able to create multiplte tasks so that I can organize my workload.
 
-- as a user I want to add the description so that i can provide more details to the task
+- As a user I want to add the description so that I can provide additional information to the task.
 
-- as a user I want to add due date, so that I can keep track of when each of my tasks is the deadline.
+- As a user I want to add due date, so that I can keep track of when each of my tasks is the deadline.
 
-- as a user I would like to be able to delete tasks so that I reduce the number of unwanted tasks and to get confirmation before eliminating them.
+- As a user I would like to be able to delete tasks so that I reduce the number of unwanted tasks and to get confirmation before eliminating them.
 
-- as a user, I want to be able to edit my tasks so that i can change the details of a certain task (its name,descreption,due date)
+- As a user, I want to be able to edit my tasks so that i can change the details of a certain task (its name,description,due date)
 
-- as a user ,I want to be provideed with a notification so that i can be informed when the deadline is approaching
+- As a user ,I want to be provideed with a notification so that i can be informed when the deadline is approaching.
 
-- as a user ,I want to split the completed tasks from the uncompleted once so that my task can be more organized and less distracted.
+- As a user ,I want to split the completed tasks from the uncompleted once so that my task can be more organized and less distracted.
 
 ## Development Process and Problem-solving Strategy:
 ##  Unsolved Problems which would be fixed in future iterations:
