@@ -14,7 +14,9 @@ This project represents an android application **Tick2Do**, which helps the user
 * Adobe Photoshop
 ### For Designing the pages of the app"
 * Figma 
+
 * Adobe Illustrator
+### For Programming the app:
 
 ## Wireframes and User stories:
 ## Development Process and Problem-solving Strategy:
