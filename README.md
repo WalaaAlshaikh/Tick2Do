@@ -17,6 +17,9 @@ This project represents an android application **Tick2Do**, which helps the user
 
 * Adobe Illustrator
 ### For Programming the app:
+* Android Studio
+
+Room
 
 ## Wireframes and User stories:
 ## Development Process and Problem-solving Strategy:
