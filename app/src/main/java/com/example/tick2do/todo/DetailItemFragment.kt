@@ -136,7 +136,7 @@ class DetailItemFragment : Fragment() {
             // pop up warning window for confirmation of task deleting
             val aluilder = AlertDialog.Builder(requireContext())
             aluilder.setTitle("Delete Notification")
-            aluilder.setMessage("This task will be deleted and it can not be undone \n Are you sure you want to do this")
+            aluilder.setMessage("This task will be deleted and it can not be undone \n Are you sure?")
             aluilder.setPositiveButton("Yes") { dialogInterface, which ->
                 toDoViewModel.deleteItem(selectedItem)
                 findNavController().popBackStack()

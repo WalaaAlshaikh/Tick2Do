@@ -61,7 +61,7 @@ class AddItemFragment : Fragment() {
 
         mDateSet= OnDateSetListener { datePicker, year, month, day ->
             var months = month
-            months = months + 1
+             months = months + 1
             var days = day
             //Log.d(TAG, "onDateSet:yyy MMMM dd: $year $month $day")
             if(month<10) months = "0$months".toInt()
@@ -77,12 +77,12 @@ class AddItemFragment : Fragment() {
             val taskName=addTaskEditText.text.toString()
             val description=addDescriptionEditText.text.toString()
             val dueDate=addDueDateEditText.text.toString()
-            if (taskName.isNotEmpty()){
+            if (taskName.isNotEmpty() && dueDate.isNotEmpty()){
                 toDoViewModel.addItem(taskName,description,dueDate,check = false)
 
                 findNavController().popBackStack()
             }else{
-                Toast.makeText(requireContext(), "You need to add the task name first", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "task and date fields should be filled", Toast.LENGTH_SHORT).show()
             }
 
 
